@@ -1,0 +1,45 @@
+diff --git a/app/main.py b/app/main.py
+index 7560375..5dd9287 100644
+--- a/app/main.py
++++ b/app/main.py
+@@ -57,7 +57,7 @@ def order_detail(row):
+     order = as_dict(row)
+     if order["priority"] == "express":
+         placed_at = datetime.fromisoformat(order["created_at"])
+-        estimated_at = placed_at.replace(day=placed_at.day + 2)
++        estimated_at = placed_at + timedelta(days=2)
+         order["estimated_delivery"] = estimated_at.date().isoformat()
+     return order
+ 
+diff --git a/tests/test_api.py b/tests/test_api.py
+index 2a38e31..061ceea 100644
+--- a/tests/test_api.py
++++ b/tests/test_api.py
+@@ -33,3 +33,27 @@ def test_create_and_update_order(client):
+ 
+ def test_missing_order(client):
+     assert client.get("/api/orders/missing").status_code == 404
++
++
++@pytest.mark.parametrize("created_at,expected_delivery", [
++    ("2026-09-30T12:00:00+00:00", "2026-10-02"),
++    ("2026-01-30T12:00:00+00:00", "2026-02-01"),
++    ("2026-02-28T12:00:00+00:00", "2026-03-02"),
++    ("2024-02-28T12:00:00+00:00", "2024-03-01"),
++    ("2026-12-31T12:00:00+00:00", "2027-01-02"),
++    ("2026-10-05T12:00:00+00:00", "2026-10-07"),
++])
++def test_express_lookup_delivery_date(client, created_at, expected_delivery):
++    with main.connect() as db:
++        db.execute(
++            "UPDATE orders SET created_at = ? WHERE id = ?",
++            (created_at, "express-1002"),
++        )
++
++    response = client.get("/api/orders/express-1002")
++
++    assert response.status_code == 200
++    order = response.json()
++    assert order["id"] == "express-1002"
++    assert order["created_at"] == created_at
++    assert order["estimated_delivery"] == expected_delivery

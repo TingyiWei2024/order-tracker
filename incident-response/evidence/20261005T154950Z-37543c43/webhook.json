@@ -1,0 +1,22 @@
+{
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "OrderLookup5xx",
+        "grafana_folder": "Order Tracker",
+        "http_route": "/api/orders/{order_id}",
+        "service": "order-tracker",
+        "severity": "critical"
+      },
+      "annotations": {
+        "dashboard_url": "http://localhost:3000/d/order-tracker?viewPanel=2",
+        "description": "HTTP 5xx counter increased over the last 2 minutes on /api/orders/{order_id}. Evaluated every 10 seconds with no pending delay. Inspect the dashboard, correlated Loki logs and Tempo traces.",
+        "summary": "Order lookup 5xx on /api/orders/{order_id}"
+      },
+      "startsAt": "2026-10-05T15:49:50Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "fingerprint": "e97b40c81813bf03"
+    }
+  ]
+}

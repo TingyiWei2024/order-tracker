@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "incident_id": "20261005T154950Z-37543c43",
+  "started_unix": 1791215390.094513,
+  "exit_code": 0,
+  "last_line": "The date calculation is fixed and ready for orchestrator review.",
+  "resolved_model": "gpt-6-astra",
+  "model_evidence": "explicit --model argument (configured host model at implementation)",
+  "files_changed": [
+    "app/main.py",
+    "tests/test_api.py"
+  ],
+  "finished_unix": 1791215455.189686
+}

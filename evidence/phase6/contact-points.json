@@ -1,0 +1,1 @@
+[{"uid":"","name":"email receiver","type":"email","settings":{"addresses":"\u003cexample@email.com\u003e"},"disableResolveMessage":false},{"uid":"homework-responder","name":"homework-responder","type":"webhook","settings":{"httpMethod":"POST","maxAlerts":"10","url":"http://host.docker.internal:8001/alerts"},"disableResolveMessage":false,"provenance":"file"}]

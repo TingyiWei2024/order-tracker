@@ -1,0 +1,11 @@
+Root cause: express-order lookup used `replace(day=day + 2)`, producing invalid dates at month boundaries and raising the observed `ValueError`/500. The seeded express order triggers this condition.
+
+Changed `app/main.py` to use `timedelta(days=2)`. Added six regression cases in `tests/test_api.py`, covering month/year rollover, February, leap years, and ordinary dates. Before the fix, five cases failed.
+
+Validation:
+```sh
+PYTHONDONTWRITEBYTECODE=1 OTEL_EXPORTER_OTLP_ENDPOINT= .venv/bin/python -m pytest -p no:cacheprovider tests/test_api.py tests/test_telemetry.py --basetemp=tests/.incident-tmp -q
+```
+**12 passed**, with two dependency deprecation warnings. Temporary test files were removed. No services were rebuilt or restarted.
+
+The date calculation is fixed and ready for orchestrator review.
