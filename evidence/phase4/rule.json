@@ -1,0 +1,116 @@
+{
+  "id": 1,
+  "uid": "order-tracker-5xx",
+  "orgID": 1,
+  "folderUID": "fg0boshma7d34b",
+  "ruleGroup": "order-tracker-5xx",
+  "title": "OrderLookup5xx",
+  "condition": "C",
+  "data": [
+    {
+      "refId": "A",
+      "queryType": "",
+      "relativeTimeRange": {
+        "from": 120,
+        "to": 0
+      },
+      "datasourceUid": "prometheus",
+      "model": {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "editorMode": "code",
+        "expr": "sum by (http_route) (increase(order_lookup_requests_total{http_response_status_code=~\"5..\"}[2m])) or on (http_route) sum by (http_route) (0 * order_lookup_requests_total)",
+        "instant": true,
+        "intervalMs": 1000,
+        "maxDataPoints": 43200,
+        "range": false,
+        "refId": "A"
+      }
+    },
+    {
+      "refId": "B",
+      "queryType": "",
+      "relativeTimeRange": {
+        "from": 0,
+        "to": 0
+      },
+      "datasourceUid": "__expr__",
+      "model": {
+        "datasource": {
+          "type": "__expr__",
+          "uid": "__expr__"
+        },
+        "expression": "A",
+        "intervalMs": 1000,
+        "maxDataPoints": 43200,
+        "reducer": "last",
+        "refId": "B",
+        "type": "reduce"
+      }
+    },
+    {
+      "refId": "C",
+      "queryType": "",
+      "relativeTimeRange": {
+        "from": 0,
+        "to": 0
+      },
+      "datasourceUid": "__expr__",
+      "model": {
+        "conditions": [
+          {
+            "evaluator": {
+              "params": [
+                0
+              ],
+              "type": "gt"
+            },
+            "operator": {
+              "type": "and"
+            },
+            "query": {
+              "params": [
+                "C"
+              ]
+            },
+            "reducer": {
+              "params": [],
+              "type": "last"
+            },
+            "type": "query"
+          }
+        ],
+        "datasource": {
+          "type": "__expr__",
+          "uid": "__expr__"
+        },
+        "expression": "B",
+        "intervalMs": 1000,
+        "maxDataPoints": 43200,
+        "refId": "C",
+        "type": "threshold"
+      }
+    }
+  ],
+  "updated": "2026-10-05T15:42:34Z",
+  "noDataState": "OK",
+  "execErrState": "Error",
+  "for": "0s",
+  "annotations": {
+    "__dashboardUid__": "order-tracker",
+    "__panelId__": "2",
+    "dashboard_url": "http://localhost:3000/d/order-tracker?viewPanel=2",
+    "description": "HTTP 5xx counter increased over the last 2 minutes on {{ $labels.http_route }}. Evaluated every 10 seconds with no pending delay. Inspect the dashboard, correlated Loki logs and Tempo traces.",
+    "summary": "Order lookup 5xx on {{ $labels.http_route }}"
+  },
+  "labels": {
+    "service": "order-tracker",
+    "severity": "critical"
+  },
+  "provenance": "file",
+  "isPaused": false,
+  "notification_settings": null,
+  "record": null
+}
