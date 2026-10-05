@@ -81,7 +81,7 @@ def collect(alert, mode):
     packet = {"alert": alert, "mode": mode, "source_version": git("rev-parse", "HEAD").strip(),
               "deployed_version": os.environ.get("RESPONDER_DEPLOYED_VERSION", "not supplied"),
               "window": {"start_unix": end - 600, "end_unix": end},
-              "affected_route": "/api/orders/{id}"}
+              "affected_route": "/api/orders/{order_id}"}
     if mode == "synthetic":
         packet["context"] = "Synthetic notification only; no product incident has been established."
         return packet

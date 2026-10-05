@@ -45,6 +45,7 @@ def test_evidence_limits_and_trace_correlation(monkeypatch):
     monkeypatch.setattr(responder, "fetch", fake_fetch)
     monkeypatch.setattr(responder, "git", lambda *args: "abc123\n")
     packet = responder.collect({"labels": {}}, "real")
+    assert packet["affected_route"] == "/api/orders/{order_id}"
     assert packet["window"]["end_unix"] - packet["window"]["start_unix"] == 600
     assert calls[1][2]["limit"] == 100
     assert packet["trace_ids"] == [trace]
