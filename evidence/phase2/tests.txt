@@ -1,0 +1,91 @@
+......                                                                   [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /Users/tingyiwei/Projects/ai_dev_tool/order-tracker/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+.venv/lib/python3.12/site-packages/starlette/testclient.py:53
+  /Users/tingyiwei/Projects/ai_dev_tool/order-tracker/.venv/lib/python3.12/site-packages/starlette/testclient.py:53: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+6 passed, 2 warnings in 0.33s
+{
+    "resource_metrics": [
+        {
+            "resource": {
+                "attributes": {
+                    "telemetry.sdk.language": "python",
+                    "telemetry.sdk.name": "opentelemetry",
+                    "telemetry.sdk.version": "1.45.0",
+                    "service.instance.id": "fc1ecc3d-f716-4d8a-91f4-ce8429db6e92",
+                    "service.name": "order-tracker"
+                },
+                "schema_url": ""
+            },
+            "scope_metrics": [
+                {
+                    "scope": {
+                        "name": "order-tracker",
+                        "version": null,
+                        "schema_url": "",
+                        "attributes": null
+                    },
+                    "metrics": [
+                        {
+                            "name": "order_lookup_requests",
+                            "description": "Completed order lookup requests",
+                            "unit": "{request}",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "http.route": "/api/orders/{order_id}",
+                                            "http.request.method": "GET",
+                                            "http.response.status_code": 200
+                                        },
+                                        "start_time_unix_nano": 1791214633395005000,
+                                        "time_unix_nano": 1791214633430137000,
+                                        "value": 1,
+                                        "exemplars": [
+                                            {
+                                                "filtered_attributes": {},
+                                                "value": 1,
+                                                "time_unix_nano": 1791214633394970000,
+                                                "span_id": 13763813020149960607,
+                                                "trace_id": 309782546055523844512199897692936268760
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "attributes": {
+                                            "http.route": "/api/orders/{order_id}",
+                                            "http.request.method": "GET",
+                                            "http.response.status_code": 404
+                                        },
+                                        "start_time_unix_nano": 1791214633402001000,
+                                        "time_unix_nano": 1791214633430137000,
+                                        "value": 1,
+                                        "exemplars": [
+                                            {
+                                                "filtered_attributes": {},
+                                                "value": 1,
+                                                "time_unix_nano": 1791214633401980000,
+                                                "span_id": 3630499262481263700,
+                                                "trace_id": 145890380734772228060061272466629031597
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "aggregation_temporality": 2,
+                                "is_monotonic": true
+                            }
+                        }
+                    ],
+                    "schema_url": ""
+                }
+            ],
+            "schema_url": ""
+        }
+    ]
+}

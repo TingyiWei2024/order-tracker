@@ -1,0 +1,287 @@
+app-1  | INFO:     Started server process [10]
+app-1  | INFO:     Waiting for application startup.
+app-1  | INFO:     Application startup complete.
+app-1  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+app-1  | INFO:     127.0.0.1:40476 - "GET /healthz HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:40486 - "GET /healthz HTTP/1.1" 200 OK
+app-1  | INFO:     127.0.0.1:40270 - "GET /healthz HTTP/1.1" 200 OK
+app-1  | INFO:     10.215.24.1:59820 - "GET /api/orders/standard-1001 HTTP/1.1" 200 OK
+app-1  | {
+app-1  |     "body": "Order lookup completed",
+app-1  |     "severity_number": 9,
+app-1  |     "severity_text": "INFO",
+app-1  |     "attributes": {
+app-1  |         "http.route": "/api/orders/{order_id}",
+app-1  |         "http.request.method": "GET",
+app-1  |         "http.response.status_code": 200
+app-1  |     },
+app-1  |     "dropped_attributes": 0,
+app-1  |     "timestamp": "2026-10-05T15:37:59.022424Z",
+app-1  |     "observed_timestamp": "2026-10-05T15:37:59.022439Z",
+app-1  |     "trace_id": "0xc7cc0b1df8593e9446124f2f95e9767c",
+app-1  |     "span_id": "0x98d6d01f80e3f78d",
+app-1  |     "trace_flags": 3,
+app-1  |     "resource": {
+app-1  |         "attributes": {
+app-1  |             "telemetry.sdk.language": "python",
+app-1  |             "telemetry.sdk.name": "opentelemetry",
+app-1  |             "telemetry.sdk.version": "1.45.0",
+app-1  |             "service.instance.id": "b61b397b-00f0-40c6-ad3c-d951ddb5f9ae",
+app-1  |             "service.name": "order-tracker"
+app-1  |         },
+app-1  |         "schema_url": ""
+app-1  |     },
+app-1  |     "event_name": ""
+app-1  | }
+app-1  | {
+app-1  |     "name": "GET /api/orders/{order_id}",
+app-1  |     "context": {
+app-1  |         "trace_id": "0xc7cc0b1df8593e9446124f2f95e9767c",
+app-1  |         "span_id": "0x98d6d01f80e3f78d",
+app-1  |         "trace_state": "[]"
+app-1  |     },
+app-1  |     "kind": "SpanKind.SERVER",
+app-1  |     "parent_id": null,
+app-1  |     "start_time": "2026-10-05T15:37:59.020649Z",
+app-1  |     "end_time": "2026-10-05T15:37:59.022800Z",
+app-1  |     "status": {
+app-1  |         "status_code": "UNSET"
+app-1  |     },
+app-1  |     "attributes": {
+app-1  |         "http.route": "/api/orders/{order_id}",
+app-1  |         "http.request.method": "GET",
+app-1  |         "http.response.status_code": 200
+app-1  |     },
+app-1  |     "events": [],
+app-1  |     "links": [],
+app-1  |     "resource": {
+app-1  |         "attributes": {
+app-1  |             "telemetry.sdk.language": "python",
+app-1  |             "telemetry.sdk.name": "opentelemetry",
+app-1  |             "telemetry.sdk.version": "1.45.0",
+app-1  |             "service.instance.id": "b61b397b-00f0-40c6-ad3c-d951ddb5f9ae",
+app-1  |             "service.name": "order-tracker"
+app-1  |         },
+app-1  |         "schema_url": ""
+app-1  |     }
+app-1  | }
+app-1  | INFO:     127.0.0.1:40300 - "GET /healthz HTTP/1.1" 200 OK
+app-1  | {
+app-1  |     "resource_metrics": [
+app-1  |         {
+app-1  |             "resource": {
+app-1  |                 "attributes": {
+app-1  |                     "telemetry.sdk.language": "python",
+app-1  |                     "telemetry.sdk.name": "opentelemetry",
+app-1  |                     "telemetry.sdk.version": "1.45.0",
+app-1  |                     "service.instance.id": "b61b397b-00f0-40c6-ad3c-d951ddb5f9ae",
+app-1  |                     "service.name": "order-tracker"
+app-1  |                 },
+app-1  |                 "schema_url": ""
+app-1  |             },
+app-1  |             "scope_metrics": [
+app-1  |                 {
+app-1  |                     "scope": {
+app-1  |                         "name": "order-tracker",
+app-1  |                         "version": null,
+app-1  |                         "schema_url": "",
+app-1  |                         "attributes": null
+app-1  |                     },
+app-1  |                     "metrics": [
+app-1  |                         {
+app-1  |                             "name": "order_lookup_requests",
+app-1  |                             "description": "Completed order lookup requests",
+app-1  |                             "unit": "{request}",
+app-1  |                             "data": {
+app-1  |                                 "data_points": [
+app-1  |                                     {
+app-1  |                                         "attributes": {
+app-1  |                                             "http.route": "/api/orders/{order_id}",
+app-1  |                                             "http.request.method": "GET",
+app-1  |                                             "http.response.status_code": 200
+app-1  |                                         },
+app-1  |                                         "start_time_unix_nano": 1791214679022396919,
+app-1  |                                         "time_unix_nano": 1791214682675664171,
+app-1  |                                         "value": 1,
+app-1  |                                         "exemplars": [
+app-1  |                                             {
+app-1  |                                                 "filtered_attributes": {},
+app-1  |                                                 "value": 1,
+app-1  |                                                 "time_unix_nano": 1791214679022259961,
+app-1  |                                                 "span_id": 11013218772506113933,
+app-1  |                                                 "trace_id": 265575825201321888981646804944832525948
+app-1  |                                             }
+app-1  |                                         ]
+app-1  |                                     }
+app-1  |                                 ],
+app-1  |                                 "aggregation_temporality": 2,
+app-1  |                                 "is_monotonic": true
+app-1  |                             }
+app-1  |                         }
+app-1  |                     ],
+app-1  |                     "schema_url": ""
+app-1  |                 }
+app-1  |             ],
+app-1  |             "schema_url": ""
+app-1  |         }
+app-1  |     ]
+app-1  | }
+app-1  | INFO:     127.0.0.1:53746 - "GET /healthz HTTP/1.1" 200 OK
+app-1  | {
+app-1  |     "resource_metrics": [
+app-1  |         {
+app-1  |             "resource": {
+app-1  |                 "attributes": {
+app-1  |                     "telemetry.sdk.language": "python",
+app-1  |                     "telemetry.sdk.name": "opentelemetry",
+app-1  |                     "telemetry.sdk.version": "1.45.0",
+app-1  |                     "service.instance.id": "b61b397b-00f0-40c6-ad3c-d951ddb5f9ae",
+app-1  |                     "service.name": "order-tracker"
+app-1  |                 },
+app-1  |                 "schema_url": ""
+app-1  |             },
+app-1  |             "scope_metrics": [
+app-1  |                 {
+app-1  |                     "scope": {
+app-1  |                         "name": "order-tracker",
+app-1  |                         "version": null,
+app-1  |                         "schema_url": "",
+app-1  |                         "attributes": null
+app-1  |                     },
+app-1  |                     "metrics": [
+app-1  |                         {
+app-1  |                             "name": "order_lookup_requests",
+app-1  |                             "description": "Completed order lookup requests",
+app-1  |                             "unit": "{request}",
+app-1  |                             "data": {
+app-1  |                                 "data_points": [
+app-1  |                                     {
+app-1  |                                         "attributes": {
+app-1  |                                             "http.route": "/api/orders/{order_id}",
+app-1  |                                             "http.request.method": "GET",
+app-1  |                                             "http.response.status_code": 200
+app-1  |                                         },
+app-1  |                                         "start_time_unix_nano": 1791214679022396919,
+app-1  |                                         "time_unix_nano": 1791214687678169923,
+app-1  |                                         "value": 1,
+app-1  |                                         "exemplars": []
+app-1  |                                     }
+app-1  |                                 ],
+app-1  |                                 "aggregation_temporality": 2,
+app-1  |                                 "is_monotonic": true
+app-1  |                             }
+app-1  |                         }
+app-1  |                     ],
+app-1  |                     "schema_url": ""
+app-1  |                 }
+app-1  |             ],
+app-1  |             "schema_url": ""
+app-1  |         }
+app-1  |     ]
+app-1  | }
+app-1  | INFO:     127.0.0.1:53754 - "GET /healthz HTTP/1.1" 200 OK
+app-1  | {
+app-1  |     "resource_metrics": [
+app-1  |         {
+app-1  |             "resource": {
+app-1  |                 "attributes": {
+app-1  |                     "telemetry.sdk.language": "python",
+app-1  |                     "telemetry.sdk.name": "opentelemetry",
+app-1  |                     "telemetry.sdk.version": "1.45.0",
+app-1  |                     "service.instance.id": "b61b397b-00f0-40c6-ad3c-d951ddb5f9ae",
+app-1  |                     "service.name": "order-tracker"
+app-1  |                 },
+app-1  |                 "schema_url": ""
+app-1  |             },
+app-1  |             "scope_metrics": [
+app-1  |                 {
+app-1  |                     "scope": {
+app-1  |                         "name": "order-tracker",
+app-1  |                         "version": null,
+app-1  |                         "schema_url": "",
+app-1  |                         "attributes": null
+app-1  |                     },
+app-1  |                     "metrics": [
+app-1  |                         {
+app-1  |                             "name": "order_lookup_requests",
+app-1  |                             "description": "Completed order lookup requests",
+app-1  |                             "unit": "{request}",
+app-1  |                             "data": {
+app-1  |                                 "data_points": [
+app-1  |                                     {
+app-1  |                                         "attributes": {
+app-1  |                                             "http.route": "/api/orders/{order_id}",
+app-1  |                                             "http.request.method": "GET",
+app-1  |                                             "http.response.status_code": 200
+app-1  |                                         },
+app-1  |                                         "start_time_unix_nano": 1791214679022396919,
+app-1  |                                         "time_unix_nano": 1791214692683847842,
+app-1  |                                         "value": 1,
+app-1  |                                         "exemplars": []
+app-1  |                                     }
+app-1  |                                 ],
+app-1  |                                 "aggregation_temporality": 2,
+app-1  |                                 "is_monotonic": true
+app-1  |                             }
+app-1  |                         }
+app-1  |                     ],
+app-1  |                     "schema_url": ""
+app-1  |                 }
+app-1  |             ],
+app-1  |             "schema_url": ""
+app-1  |         }
+app-1  |     ]
+app-1  | }
+app-1  | INFO:     127.0.0.1:44344 - "GET /healthz HTTP/1.1" 200 OK
+app-1  | {
+app-1  |     "resource_metrics": [
+app-1  |         {
+app-1  |             "resource": {
+app-1  |                 "attributes": {
+app-1  |                     "telemetry.sdk.language": "python",
+app-1  |                     "telemetry.sdk.name": "opentelemetry",
+app-1  |                     "telemetry.sdk.version": "1.45.0",
+app-1  |                     "service.instance.id": "b61b397b-00f0-40c6-ad3c-d951ddb5f9ae",
+app-1  |                     "service.name": "order-tracker"
+app-1  |                 },
+app-1  |                 "schema_url": ""
+app-1  |             },
+app-1  |             "scope_metrics": [
+app-1  |                 {
+app-1  |                     "scope": {
+app-1  |                         "name": "order-tracker",
+app-1  |                         "version": null,
+app-1  |                         "schema_url": "",
+app-1  |                         "attributes": null
+app-1  |                     },
+app-1  |                     "metrics": [
+app-1  |                         {
+app-1  |                             "name": "order_lookup_requests",
+app-1  |                             "description": "Completed order lookup requests",
+app-1  |                             "unit": "{request}",
+app-1  |                             "data": {
+app-1  |                                 "data_points": [
+app-1  |                                     {
+app-1  |                                         "attributes": {
+app-1  |                                             "http.route": "/api/orders/{order_id}",
+app-1  |                                             "http.request.method": "GET",
+app-1  |                                             "http.response.status_code": 200
+app-1  |                                         },
+app-1  |                                         "start_time_unix_nano": 1791214679022396919,
+app-1  |                                         "time_unix_nano": 1791214697689876803,
+app-1  |                                         "value": 1,
+app-1  |                                         "exemplars": []
+app-1  |                                     }
+app-1  |                                 ],
+app-1  |                                 "aggregation_temporality": 2,
+app-1  |                                 "is_monotonic": true
+app-1  |                             }
+app-1  |                         }
+app-1  |                     ],
+app-1  |                     "schema_url": ""
+app-1  |                 }
+app-1  |             ],
+app-1  |             "schema_url": ""
+app-1  |         }
+app-1  |     ]
+app-1  | }
