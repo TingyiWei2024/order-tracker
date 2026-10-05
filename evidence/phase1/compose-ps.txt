@@ -1,0 +1,2 @@
+NAME                  IMAGE                 COMMAND                  SERVICE   CREATED          STATUS                    PORTS
+order-tracker-app-1   order-tracker:local   "uv run --no-sync uv…"   app       27 seconds ago   Up 27 seconds (healthy)   127.0.0.1:8000->8000/tcp

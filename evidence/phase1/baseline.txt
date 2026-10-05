@@ -1,0 +1,5 @@
+Baseline: 72de4478257813e3ca3a285988f3ad759ec4ea8d
+Branch: codex/hw4-complete
+Initial tree clean. Docker 28.0.4; Compose 2.34.0; uv 0.12.9; codex-cli 0.155.0-alpha.9.2
+Started unchanged with docker compose up --build -d --wait. GET / HTML contains Order Tracker heading.
+Q1 observed body: {"status":"ok"}
