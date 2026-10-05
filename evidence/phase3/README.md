@@ -1,0 +1,3 @@
+Q3: **404**. The starter has no standard-1002. request.json records the HTTP request and trace ID; metric.json records http_response_status_code=404; logs.json and trace.json correlate trace 8a9b18dd806d4091f17179f352216b92. grafana-metric/logs/trace.json were queried through Grafana datasource proxy, not inferred. Grafana Tempo plugin health method returns notImplemented; its actual trace proxy query succeeds. All services ready.
+
+Configuration references: https://grafana.com/docs/loki/latest/send-data/otel/ and https://grafana.com/docs/tempo/latest/configuration/ and https://grafana.com/docs/grafana/latest/administration/provisioning/ .

@@ -1,0 +1,84 @@
+{
+  "batches": [
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "telemetry.sdk.language",
+            "value": {
+              "stringValue": "python"
+            }
+          },
+          {
+            "key": "telemetry.sdk.name",
+            "value": {
+              "stringValue": "opentelemetry"
+            }
+          },
+          {
+            "key": "telemetry.sdk.version",
+            "value": {
+              "stringValue": "1.45.0"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "73e5f9e7-aad2-433b-abb6-0264fc23e52a"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "900267c266062f791cec8b7b70c394f071b3125e"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "order-tracker"
+            }
+          }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": {
+            "name": "order-tracker"
+          },
+          "spans": [
+            {
+              "traceId": "ipsY3YBtQJHxcXnzUiFrkg==",
+              "spanId": "Pau4Ja7W4IQ=",
+              "name": "GET /api/orders/{order_id}",
+              "kind": "SPAN_KIND_SERVER",
+              "startTimeUnixNano": "1791214799071863544",
+              "endTimeUnixNano": "1791214799073484586",
+              "attributes": [
+                {
+                  "key": "http.route",
+                  "value": {
+                    "stringValue": "/api/orders/{order_id}"
+                  }
+                },
+                {
+                  "key": "http.request.method",
+                  "value": {
+                    "stringValue": "GET"
+                  }
+                },
+                {
+                  "key": "http.response.status_code",
+                  "value": {
+                    "intValue": "404"
+                  }
+                }
+              ],
+              "status": {}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

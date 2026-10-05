@@ -1,0 +1,7 @@
+NAME                             IMAGE                                          COMMAND                  SERVICE          CREATED         STATUS                   PORTS
+order-tracker-app-1              order-tracker:local                            "uv run --no-sync uv…"   app              2 minutes ago   Up 2 minutes (healthy)   127.0.0.1:8000->8000/tcp
+order-tracker-grafana-1          grafana/grafana:11.6.0                         "/run.sh"                grafana          2 minutes ago   Up 2 minutes (healthy)   127.0.0.1:3000->3000/tcp
+order-tracker-loki-1             grafana/loki:3.4.2                             "/usr/bin/loki -conf…"   loki             2 minutes ago   Up 2 minutes (healthy)   127.0.0.1:3100->3100/tcp
+order-tracker-otel-collector-1   otel/opentelemetry-collector-contrib:0.123.0   "/otelcol-contrib --…"   otel-collector   2 minutes ago   Up 2 minutes             4317-4318/tcp, 55678-55679/tcp, 127.0.0.1:13133->13133/tcp
+order-tracker-prometheus-1       prom/prometheus:v3.2.1                         "/bin/prometheus --c…"   prometheus       2 minutes ago   Up 2 minutes (healthy)   127.0.0.1:9090->9090/tcp
+order-tracker-tempo-1            grafana/tempo:2.7.2                            "/tempo -config.file…"   tempo            2 minutes ago   Up 2 minutes             127.0.0.1:3200->3200/tcp

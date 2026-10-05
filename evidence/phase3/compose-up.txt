@@ -1,0 +1,105 @@
+Compose can now delegate builds to bake for better performance.
+ To do so, set COMPOSE_BAKE=true.
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [app internal] load build definition from Dockerfile
+#1 transferring dockerfile: 456B done
+#1 DONE 0.0s
+
+#2 [app internal] load metadata for docker.io/library/python:3.12-slim
+#2 DONE 0.6s
+
+#3 [app internal] load metadata for ghcr.io/astral-sh/uv:0.8.22
+#3 DONE 0.8s
+
+#4 [app internal] load .dockerignore
+#4 transferring context: 186B done
+#4 DONE 0.0s
+
+#5 [app internal] load build context
+#5 transferring context: 1.34kB done
+#5 DONE 0.0s
+
+#6 [app] FROM ghcr.io/astral-sh/uv:0.8.22@sha256:9874eb7afe5ca16c363fe80b294fe700e460df29a55532bbfea234a0f12eddb1
+#6 resolve ghcr.io/astral-sh/uv:0.8.22@sha256:9874eb7afe5ca16c363fe80b294fe700e460df29a55532bbfea234a0f12eddb1 0.0s done
+#6 DONE 0.0s
+
+#7 [app stage-0 1/7] FROM docker.io/library/python:3.12-slim@sha256:02108f5d322dd89f1c9e552442c25acb0543dfdbc455693a5599624f20d9155d
+#7 resolve docker.io/library/python:3.12-slim@sha256:02108f5d322dd89f1c9e552442c25acb0543dfdbc455693a5599624f20d9155d 0.0s done
+#7 DONE 0.0s
+
+#8 [app stage-0 2/7] COPY --from=ghcr.io/astral-sh/uv:0.8.22 /uv /uvx /bin/
+#8 CACHED
+
+#9 [app stage-0 3/7] WORKDIR /app
+#9 CACHED
+
+#10 [app stage-0 5/7] RUN uv sync --frozen --no-dev
+#10 CACHED
+
+#11 [app stage-0 4/7] COPY pyproject.toml uv.lock ./
+#11 CACHED
+
+#12 [app stage-0 6/7] COPY app ./app
+#12 CACHED
+
+#13 [app stage-0 7/7] COPY static ./static
+#13 CACHED
+
+#14 [app] exporting to image
+#14 exporting layers done
+#14 exporting manifest sha256:c3cf9fc7d9a24056b386c1dc69c9eac35701f5ed927b7e8587d8581be007eb4e done
+#14 exporting config sha256:dcaf1e4b87c839828be026684854d77d129009f45f7381f37be4bd82ed34543c done
+#14 exporting attestation manifest sha256:8c3e9b4cfaacdebd572baa14165d99241680a32b1cfaf2f9c0a4987899860e61 done
+#14 exporting manifest list sha256:df333f0eff3828b4739d1682317f76f0f849408e01c635247cac86153f8669bd done
+#14 naming to docker.io/library/order-tracker:local done
+#14 unpacking to docker.io/library/order-tracker:local done
+#14 DONE 0.0s
+
+#15 [app] resolving provenance for metadata file
+#15 DONE 0.0s
+ app  Built
+ Volume "order-tracker_loki"  Creating
+ Volume "order-tracker_loki"  Created
+ Volume "order-tracker_tempo"  Creating
+ Volume "order-tracker_tempo"  Created
+ Volume "order-tracker_grafana"  Creating
+ Volume "order-tracker_grafana"  Created
+ Volume "order-tracker_prometheus"  Creating
+ Volume "order-tracker_prometheus"  Created
+ Container order-tracker-prometheus-1  Creating
+ Container order-tracker-grafana-1  Creating
+ Container order-tracker-loki-1  Creating
+ Container order-tracker-tempo-1  Creating
+ Container order-tracker-tempo-1  Created
+ Container order-tracker-grafana-1  Created
+ Container order-tracker-prometheus-1  Created
+ Container order-tracker-loki-1  Created
+ Container order-tracker-otel-collector-1  Creating
+ Container order-tracker-otel-collector-1  Created
+ Container order-tracker-app-1  Recreate
+ Container order-tracker-app-1  Recreated
+ Container order-tracker-grafana-1  Starting
+ Container order-tracker-prometheus-1  Starting
+ Container order-tracker-loki-1  Starting
+ Container order-tracker-tempo-1  Starting
+ Container order-tracker-tempo-1  Started
+ Container order-tracker-prometheus-1  Started
+ Container order-tracker-grafana-1  Started
+ Container order-tracker-loki-1  Started
+ Container order-tracker-otel-collector-1  Starting
+ Container order-tracker-otel-collector-1  Started
+ Container order-tracker-app-1  Starting
+ Container order-tracker-app-1  Started
+ Container order-tracker-grafana-1  Waiting
+ Container order-tracker-app-1  Waiting
+ Container order-tracker-otel-collector-1  Waiting
+ Container order-tracker-prometheus-1  Waiting
+ Container order-tracker-loki-1  Waiting
+ Container order-tracker-tempo-1  Waiting
+ Container order-tracker-tempo-1  Healthy
+ Container order-tracker-otel-collector-1  Healthy
+ Container order-tracker-grafana-1  Healthy
+ Container order-tracker-prometheus-1  Healthy
+ Container order-tracker-app-1  Healthy
+ Container order-tracker-loki-1  Healthy
