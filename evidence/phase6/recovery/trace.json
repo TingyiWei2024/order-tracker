@@ -1,0 +1,85 @@
+{
+  "batches": [
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "telemetry.sdk.language",
+            "value": {
+              "stringValue": "python"
+            }
+          },
+          {
+            "key": "telemetry.sdk.name",
+            "value": {
+              "stringValue": "opentelemetry"
+            }
+          },
+          {
+            "key": "telemetry.sdk.version",
+            "value": {
+              "stringValue": "1.45.0"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "54af0e33-ff20-4b51-8298-ffcc894765e1"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "bf3152f5b7012bae7775d5efde3016840b856aaf"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "order-tracker"
+            }
+          }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": {
+            "name": "order-tracker"
+          },
+          "spans": [
+            {
+              "traceId": "ucTQbx6xZiqiZN+OB6qPpg==",
+              "spanId": "kc6vulwJHLY=",
+              "flags": 256,
+              "name": "GET /api/orders/{order_id}",
+              "kind": "SPAN_KIND_SERVER",
+              "startTimeUnixNano": "1791215564128893093",
+              "endTimeUnixNano": "1791215564131135093",
+              "attributes": [
+                {
+                  "key": "http.route",
+                  "value": {
+                    "stringValue": "/api/orders/{order_id}"
+                  }
+                },
+                {
+                  "key": "http.request.method",
+                  "value": {
+                    "stringValue": "GET"
+                  }
+                },
+                {
+                  "key": "http.response.status_code",
+                  "value": {
+                    "intValue": "200"
+                  }
+                }
+              ],
+              "status": {}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

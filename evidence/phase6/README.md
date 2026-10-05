@@ -1,0 +1,5 @@
+Real incident 20261005T154950Z-37543c43: express-1002-before.http records 500; firing-rules.json records Grafana Firing at 15:49:50Z; incident-response/evidence holds the matching actual webhook, bounded metrics/logs/traces, exact Codex command/prompt/output and patch. No answer choice was supplied to the agent. It identified invalid calendar-day replacement and changed one app line to timedelta(days=2), adding six date regression cases (five failed before repair).
+
+Final suite: 17 passed, 2 pre-existing dependency deprecation warnings. recovery/request.json records HTTP200 and estimated_delivery=2026-10-02; recovery metric/log/trace correlate b9c4d06f1eb1662aa264df8e07aa8fa6. healthz-after.http records HTTP200 and {"status":"ok"}. recovery-rules.json records a healthy Normal evaluation after recovery requests.
+
+The resolved webhook at 15:51:50Z occurred when the 2-minute error window aged out, before the post-rebuild request. It alone does not prove recovery; the subsequent successful same request, regression tests and matching 200 telemetry establish that. Resolution evidence: incident-response/evidence/20261005T155150Z-8ff08f43.

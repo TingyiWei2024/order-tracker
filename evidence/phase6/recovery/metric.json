@@ -1,0 +1,30 @@
+{
+  "status": "success",
+  "data": {
+    "resultType": "vector",
+    "result": [
+      {
+        "metric": {
+          "__name__": "order_lookup_requests_total",
+          "exported_instance": "54af0e33-ff20-4b51-8298-ffcc894765e1",
+          "exported_job": "order-tracker",
+          "http_request_method": "GET",
+          "http_response_status_code": "200",
+          "http_route": "/api/orders/{order_id}",
+          "instance": "otel-collector:8889",
+          "job": "order-tracker",
+          "service_instance_id": "54af0e33-ff20-4b51-8298-ffcc894765e1",
+          "service_name": "order-tracker",
+          "service_version": "bf3152f5b7012bae7775d5efde3016840b856aaf",
+          "telemetry_sdk_language": "python",
+          "telemetry_sdk_name": "opentelemetry",
+          "telemetry_sdk_version": "1.45.0"
+        },
+        "value": [
+          1791215568.167,
+          "1"
+        ]
+      }
+    ]
+  }
+}

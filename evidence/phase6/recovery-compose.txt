@@ -1,0 +1,83 @@
+Compose can now delegate builds to bake for better performance.
+ To do so, set COMPOSE_BAKE=true.
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [app internal] load build definition from Dockerfile
+#1 transferring dockerfile: 456B done
+#1 DONE 0.0s
+
+#2 [app internal] load metadata for ghcr.io/astral-sh/uv:0.8.22
+#2 DONE 0.5s
+
+#3 [app internal] load metadata for docker.io/library/python:3.12-slim
+#3 DONE 0.6s
+
+#4 [app internal] load .dockerignore
+#4 transferring context: 186B done
+#4 DONE 0.0s
+
+#5 [app internal] load build context
+#5 transferring context: 13.25kB done
+#5 DONE 0.0s
+
+#6 [app] FROM ghcr.io/astral-sh/uv:0.8.22@sha256:9874eb7afe5ca16c363fe80b294fe700e460df29a55532bbfea234a0f12eddb1
+#6 resolve ghcr.io/astral-sh/uv:0.8.22@sha256:9874eb7afe5ca16c363fe80b294fe700e460df29a55532bbfea234a0f12eddb1 0.0s done
+#6 DONE 0.0s
+
+#7 [app stage-0 1/7] FROM docker.io/library/python:3.12-slim@sha256:02108f5d322dd89f1c9e552442c25acb0543dfdbc455693a5599624f20d9155d
+#7 resolve docker.io/library/python:3.12-slim@sha256:02108f5d322dd89f1c9e552442c25acb0543dfdbc455693a5599624f20d9155d 0.0s done
+#7 DONE 0.0s
+
+#8 [app stage-0 4/7] COPY pyproject.toml uv.lock ./
+#8 CACHED
+
+#9 [app stage-0 3/7] WORKDIR /app
+#9 CACHED
+
+#10 [app stage-0 2/7] COPY --from=ghcr.io/astral-sh/uv:0.8.22 /uv /uvx /bin/
+#10 CACHED
+
+#11 [app stage-0 5/7] RUN uv sync --frozen --no-dev
+#11 CACHED
+
+#12 [app stage-0 6/7] COPY app ./app
+#12 DONE 0.0s
+
+#13 [app stage-0 7/7] COPY static ./static
+#13 DONE 0.0s
+
+#14 [app] exporting to image
+#14 exporting layers 0.0s done
+#14 exporting manifest sha256:0bb4308650937cf64adf3df44ac6f3401b0d7753292e3fdaaf42d1bc0429cd07 done
+#14 exporting config sha256:bf0dda9db43b78103de4ac2f05a9c18035632b610ec7d452883a1463929f2374 done
+#14 exporting attestation manifest sha256:7bccac8ea7b77f9bc76372a5c48aaf6449edfd55fd06ef778f7c7e3f3011ac3c done
+#14 exporting manifest list sha256:1f09a3cd3648cff1c529a19d4703ad857dfab0762310cb3fddc8478001b44056
+#14 exporting manifest list sha256:1f09a3cd3648cff1c529a19d4703ad857dfab0762310cb3fddc8478001b44056 done
+#14 naming to docker.io/library/order-tracker:local done
+#14 unpacking to docker.io/library/order-tracker:local 0.0s done
+#14 DONE 0.1s
+
+#15 [app] resolving provenance for metadata file
+#15 DONE 0.0s
+ app  Built
+ Container order-tracker-grafana-1  Running
+ Container order-tracker-tempo-1  Running
+ Container order-tracker-prometheus-1  Running
+ Container order-tracker-loki-1  Running
+ Container order-tracker-otel-collector-1  Running
+ Container order-tracker-app-1  Recreate
+ Container order-tracker-app-1  Recreated
+ Container order-tracker-app-1  Starting
+ Container order-tracker-app-1  Started
+ Container order-tracker-otel-collector-1  Waiting
+ Container order-tracker-prometheus-1  Waiting
+ Container order-tracker-loki-1  Waiting
+ Container order-tracker-tempo-1  Waiting
+ Container order-tracker-grafana-1  Waiting
+ Container order-tracker-app-1  Waiting
+ Container order-tracker-tempo-1  Healthy
+ Container order-tracker-loki-1  Healthy
+ Container order-tracker-grafana-1  Healthy
+ Container order-tracker-prometheus-1  Healthy
+ Container order-tracker-otel-collector-1  Healthy
+ Container order-tracker-app-1  Healthy

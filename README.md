@@ -46,7 +46,7 @@ The response includes an incident ID. Poll `http://localhost:8001/incidents/INCI
 
 ## Incident exercise
 
-After configuring the Grafana webhook contact point to the responder, request the seeded express order:
+The provisioned Grafana contact point already sends alerts to `http://host.docker.internal:8001/alerts`. With the responder running, request the seeded express order:
 
 ```bash
 curl -i http://localhost:8000/api/orders/express-1002
@@ -61,11 +61,21 @@ curl -i http://localhost:8000/api/orders/express-1002
 curl -i http://localhost:8000/healthz
 ```
 
-Verify matching recovery telemetry and Grafana returning to Normal after the 2-minute window. Once the incident is fixed, reproducing the original failure requires an explicit checkout of the recorded pre-fix checkpoint in a separate clone; do not overwrite the completed homework checkout. This procedure does not assume a root cause before the agent investigates.
+Verify matching recovery telemetry and Grafana returning to Normal after the 2-minute window. The final code is fixed, so this request now succeeds. To replay the original incident, first stop the current responder and stack, then use a separate local clone at pre-fix checkpoint `a79dbb0` (the completed checkout remains intact):
+
+```bash
+git clone --no-hardlinks . /tmp/order-tracker-hw4-replay
+cd /tmp/order-tracker-hw4-replay
+git checkout --detach a79dbb0
+ORDER_TRACKER_VERSION=$(git rev-parse HEAD) docker compose -p order-tracker-hw4-replay up --build -d --wait
+RESPONDER_DEPLOYED_VERSION=$(git rev-parse HEAD) uv run --frozen python incident-response/server.py
+```
+
+Send the express request from another terminal, repeat after 10 seconds if needed, and follow the investigation/rebuild checks above using the same `-p order-tracker-hw4-replay` Compose project. Stop that replay stack with `docker compose -p order-tracker-hw4-replay down`. This replay is a manual exercise, not run during final acceptance.
 
 ## Evidence and shutdown
 
-Baseline and phased evidence is under `evidence/`. Observed answers so far: Q1 `{"status":"ok"}`, Q2 200, Q3 404 for the requested `standard-1002`, Q4 Normal. The existing synthetic agent's complete response and exact final line are in [response.txt](incident-response/evidence/20261005T154439Z-bfb36253/response.txt). These are historical observations, not values inserted into the application.
+Baseline and phased evidence is under `evidence/`. Observed answers so far: Q1 `{"status":"ok"}`, Q2 200, Q3 404 for the requested `standard-1002`, Q4 Normal. The existing synthetic agent's complete response and exact final line are in [response.txt](incident-response/evidence/20261005T154439Z-bfb36253/response.txt). Q6 was independently diagnosed as invalid express delivery date arithmetic at month boundaries; the minimal fix uses `timedelta(days=2)`. The real incident is [20261005T154950Z-37543c43](incident-response/evidence/20261005T154950Z-37543c43/response.txt). Recovery returned HTTP 200 with correlated telemetry; the final suite has 17 passing tests. See [submission evidence](evidence/REPORT.md). These are historical observations, not values inserted into the application.
 
 Stop the responder with Ctrl-C in its terminal, then stop the stack without deleting data:
 
