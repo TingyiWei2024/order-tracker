@@ -1,0 +1,11 @@
+{
+  "status": "completed",
+  "incident_id": "20261005T154439Z-bfb36253",
+  "started_unix": 1791215079.350433,
+  "exit_code": 0,
+  "last_line": "No files were read or modified, and no commands or external services were invoked. Treat this as a test notification; further investigation would require evidence of actual failure or impact.",
+  "resolved_model": "gpt-6-astra",
+  "model_evidence": "explicit --model argument (configured host model at implementation)",
+  "files_changed": [],
+  "finished_unix": 1791215091.2145238
+}

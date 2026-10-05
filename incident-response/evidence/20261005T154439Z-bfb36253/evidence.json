@@ -1,0 +1,22 @@
+{
+  "alert": {
+    "status": "firing",
+    "labels": {
+      "alertname": "ResponderTest",
+      "test": "true"
+    },
+    "annotations": {
+      "summary": "Test notification; no incident to fix"
+    }
+  },
+  "mode": "synthetic",
+  "source_version": "61f5e750ec78bc2c4c3e01d3ff611090a20d163c",
+  "deployed_version": "900267c266062f791cec8b7b70c394f071b3125e",
+  "window": {
+    "start_unix": 1791214479.341391,
+    "end_unix": 1791215079.341391
+  },
+  "affected_route": "/api/orders/{id}",
+  "context": "Synthetic notification only; no product incident has been established.",
+  "incident_id": "20261005T154439Z-bfb36253"
+}
